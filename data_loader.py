@@ -42,11 +42,11 @@ class My_Collator:
                 (0.5, 0.5, 0.5)),])
 
         # augmentation policies are applied for each image in the mini batch
-
+        print("Policies >>>>>>  ", self.policies)
         for i in range(int(len(self.policies)/4)):
             i = i * 4
             policy = [self.policies[i], self.policies[i+1], self.policies[i+2], self.policies[i+3]]
-
+            print("\n Policy ******** ", policy)
             for pil_img, target in zip(pil_imgs, targets):
                 augmented_imgs.append(normalize_transform(apply_policy(pil_img, policy, operations)))
                 augmented_targets.append(target)
