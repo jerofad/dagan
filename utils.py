@@ -29,7 +29,7 @@ class Config:
     no_policies = 2
     entropy_penalty = 0.00001
 
-    total_epochs = 3
+    total_epochs = 5
 
     # reward_moving_average_mometum
     momentum = 0.1

@@ -137,7 +137,7 @@ def get_operations(imgs, cutout_default=False):
         (sharpness, 0.1, 1.9),
         (cutout, 0, 0.25, cutout_default),
         (sample_pairing(imgs), 0, 0.4),
-        # (cgan, 0, 1),
+        (cgan, 0, 1),
         # (dagan())
     ]
 
