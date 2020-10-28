@@ -38,7 +38,8 @@ def main():
     parser.add_argument('--validate',help='validate img_classifier', action='store_true')
     parser.add_argument('--resume', default='', type=str, metavar='PATH',
                     help='path to latest checkpoint (default: none)')
-    parser.add_argument('--with_GAN', default=False, type=str, help='Use GAN as fixed augmentation')
+    parser.add_argument('--with_GAN', action='store_true', default=False,
+                        help='Use GAN as fixed augmentation')
 
     parser.add_argument('--dist-url', default='', type=str,
                     help='url used to set up distributed training')
