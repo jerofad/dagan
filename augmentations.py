@@ -103,7 +103,7 @@ def sample_pairing(imgs):
 
 
 # Conditional GAN
-def cgan():
+def cgan(img, label):
     label = random.randint(0, 100)
     gen_images = generate_sample(label)
     # convert the numpy array back to PIL image

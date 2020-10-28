@@ -175,7 +175,7 @@ def generate_sample(class_for, n_samples=1):
     noise = np.random.uniform(0, 1, (n_samples, 100))
     label = np.full((n_samples,), fill_value=class_for)
     # load model
-    model = load_model('cgan_generator.h5')
+    model = load_model('cgan_generator.h5',  compile=False)
     # incase to reshape
     # x.reshape(32,32,3)
     return model.predict([noise, label])

@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-
+import random
 import torch
 import torchvision.datasets as datasets
 from torchvision import transforms
@@ -45,13 +45,19 @@ class My_Collator:
         # print("Policies >>>>>>  ", self.policies)
         for i in range(int(len(self.policies)/4)):
             i = i * 4
+
             # fix self.policies[i] to be a constant ops
-            self.policies[i] = 16   # random.choice([16,17])
+            if self.args.with_GAN:
+                print("Using GAN as a pinned augmentation policies")
+                self.policies[i] = random.choice([14, 15])
+  
             policy = [self.policies[i], self.policies[i+1], self.policies[i+2], self.policies[i+3]]
             # print("\n Policy ******** ", policy)
             for pil_img, target in zip(pil_imgs, targets):
                 augmented_imgs.append(normalize_transform(apply_policy(pil_img, policy, operations)))
                 augmented_targets.append(target)
+
+
 
         augmented_targets = torch.tensor(augmented_targets)
 
