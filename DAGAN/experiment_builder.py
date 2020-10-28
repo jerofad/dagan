@@ -216,7 +216,7 @@ class ExperimentBuilder(object):
                                     total_g_val_loss_std))
 
 
-
+                    # store sample after some e
                     sample_generator(num_generations=self.num_generations, sess=sess, same_images=self.same_images,
                                      inputs=x_train_i,
                                      data=self.data, batch_size=self.batch_size, z_input=self.z_input,
