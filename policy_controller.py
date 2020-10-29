@@ -11,7 +11,7 @@ class Policy_Controller(nn.Module):
     """ LSTM Policy Controller"""
 
     def __init__(self,
-        operation_types = 16, 
+        operation_types = 18,
         output_policies = cf.no_policies,
         operation_mags  = 10,
         embedding_size  = 32,

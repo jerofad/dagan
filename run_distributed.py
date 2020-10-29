@@ -66,6 +66,9 @@ def main():
     os.environ['MASTER_ADDR'] = '127.0.0.1'
     os.environ['MASTER_PORT'] = '8888'
 
+    if args.with_GAN:
+        print(" Using GAN as a pinned augmentation policy !!!")
+
     if args.multiprocessing_distributed:
         # Since we have ngpus_per_node processes per node, the total world_size
         # needs to be adjusted accordingly

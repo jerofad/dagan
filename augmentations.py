@@ -114,9 +114,15 @@ def cgan(img, label):
     return new_im
 
 
-def dagan():
+def dagan(img, label):
+    label = random.randint(0, 100)
+    gen_images = generate_sample(label)
+    # convert the numpy array back to PIL image
+    gen_images = 0.5 * gen_images + 0.5
+    im = gen_images.squeeze()
+    new_im = Image.fromarray((im * 255).astype(np.uint8))
 
-    return
+    return new_im
 
 
 def get_operations(imgs, cutout_default=False):
@@ -138,7 +144,7 @@ def get_operations(imgs, cutout_default=False):
         (cutout, 0, 0.25, cutout_default),
         (sample_pairing(imgs), 0, 0.4),
         (cgan, 0, 1),
-        # (dagan())
+        (dagan, 0, 1)
     ]
 
 # Applying augmentation policy to an image

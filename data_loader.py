@@ -50,7 +50,6 @@ class My_Collator:
             if self.args.with_GAN:
                 self.policies[i] = random.choice([15, 16])  # 16 cgan, 17 dagan
             policy = [self.policies[i], self.policies[i+1], self.policies[i+2], self.policies[i+3]]
-            print("\n Policy ******** ", policy)
             for pil_img, target in zip(pil_imgs, targets):
                 augmented_imgs.append(normalize_transform(apply_policy(pil_img, policy, operations)))
                 augmented_targets.append(target)
